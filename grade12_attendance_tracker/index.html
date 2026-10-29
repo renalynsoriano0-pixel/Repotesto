@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade 12 Attendance Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">STUDENT MANAGEMENT</p>
+      <h1>Grade 12 Attendance Tracker</h1>
+      <p class="subtitle">Record and review daily class attendance.</p>
+    </div>
+    <div class="date-card">
+      <label for="attendanceDate">Attendance date</label>
+      <input type="date" id="attendanceDate">
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="stats">
+      <article class="stat-card"><span>Total students</span><strong id="totalCount">0</strong></article>
+      <article class="stat-card present-card"><span>Present</span><strong id="presentCount">0</strong></article>
+      <article class="stat-card absent-card"><span>Absent</span><strong id="absentCount">0</strong></article>
+      <article class="stat-card late-card"><span>Late</span><strong id="lateCount">0</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div>
+          <h2>Student roster</h2>
+          <p>Add students, then mark their status for the selected date.</p>
+        </div>
+      </div>
+      <form id="studentForm" class="add-form">
+        <input id="studentNumber" placeholder="Student number (e.g. 12-001)" required>
+        <input id="studentName" placeholder="Full name" required>
+        <input id="studentSection" placeholder="Section (e.g. STEM A)" required>
+        <button type="submit">+ Add student</button>
+      </form>
+
+      <div class="toolbar">
+        <input id="searchInput" type="search" placeholder="Search name, number, or section…">
+        <div class="toolbar-actions">
+          <button id="saveButton" class="secondary" type="button">Save attendance</button>
+          <button id="exportButton" class="secondary" type="button">Export CSV</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Student no.</th>
+              <th>Student name</th>
+              <th>Section</th>
+              <th>Attendance status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="studentTable"></tbody>
+        </table>
+      </div>
+      <p id="emptyMessage" class="empty-message">No students added yet. Use the form above to add your Grade 12 students.</p>
+      <p id="notice" class="notice" role="status"></p>
+    </section>
+    <p class="footnote">Demo project: data is saved in this browser on this device. Export a CSV backup regularly.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
